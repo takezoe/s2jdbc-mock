@@ -1,7 +1,7 @@
 s2jdbc-mock
 =================
 
-S2JDBCを使ったサービスやDAOのユニットテストを支援するライブラリです。
+S2JDBCを使ったコードのユニットテストを支援するモックライブラリです。
 実際にDBに接続するのではなく、実行されたSQLが期待通りのものかどうかをチェックするための手段を提供します。
 
 s2jdbc-mockを使用するにはpom.xmlに以下の依存関係を追加します。
@@ -24,9 +24,9 @@ s2jdbc-mockを使用するにはpom.xmlに以下の依存関係を追加しま�
 </dependencies>
 ```
 
-設定ではユニットテスト用のs2jdbc.diconでJdbcManagerを定義している部分をorg.seasar.s2jdbcmock.MockJdbcManagerに変更するだけです。
+設定ではユニットテスト用の```s2jdbc.dicon```で```JdbcManager```を定義している部分を```org.seasar.s2jdbcmock.MockJdbcManager```に変更するだけです。
 
-テストケースではorg.seasar.s2jdbcmock.S2JdbcUnitのメンバをstaticインポートしてSQLの検証を行うことができます。
+テストケースでは```org.seasar.s2jdbcmock.S2JdbcUnit```のメンバをstaticインポートしてSQLの検証を行うことができます。
 以下はS2JUnit4を使用した場合のテストケースの例です。
 
 ```java
@@ -61,10 +61,10 @@ public class EmployeeServiceTest {
 上記の例では正規表現で検証していますが、SQLは空白や改行、大文字小文字、コメントなどを適度に正規化して比較しているので、
 厳密に文字列として完全一致するように記述しなくても大丈夫です。
 
-サービスクラスのメソッドによってはJdbcManagerの戻り値によって処理が分岐するようなケースもあるでしょう。
-そのような場合はS2JdbcUnit#addResult()メソッドでJdbcManagerが返却する値を設定することができます。
-MockJdbcManagerはSQLを実行するためにaddResult()された値を順番に返却します
-（INSERTやUPDATE時の更新件数も戻り値なのでaddResult()で設定しておくことができます）。
+サービスクラスのメソッドによっては```JdbcManager```の戻り値によって処理が分岐するようなケースもあるでしょう。
+そのような場合は```S2JdbcUnit#addResult()```メソッドで```JdbcManager```が返却する値を設定することができます。
+```MockJdbcManager```はSQLを実行するために```addResult()```された値を順番に返却します
+（INSERTやUPDATE時の更新件数も戻り値なので```addResult()```で設定しておくことができます）。
 
 ```java
 @Test
