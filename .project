@@ -1,0 +1,20 @@
+<projectDescription>
+  <name>s2jdbc-mock</name>
+  <comment>データベースレスのユニットテストを行うためのS2JDBCのモックを提供します。. NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
+  <projects/>
+  <buildSpec>
+    <buildCommand>
+      <name>org.eclipse.jdt.core.javabuilder</name>
+    </buildCommand>
+    <buildCommand>
+      <name>org.seasar.kijimuna.core.builder</name>
+    </buildCommand>
+    <buildCommand>
+      <name>org.seasar.kijimuna.core.validator</name>
+    </buildCommand>
+  </buildSpec>
+  <natures>
+    <nature>org.eclipse.jdt.core.javanature</nature>
+    <nature>org.seasar.kijimuna.core.nature</nature>
+  </natures>
+</projectDescription>
